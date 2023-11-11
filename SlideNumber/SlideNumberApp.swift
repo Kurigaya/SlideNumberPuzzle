@@ -11,7 +11,7 @@ import SwiftUI
 struct SlideNumberApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(gameModel: GameModel())
         }
     }
 }
