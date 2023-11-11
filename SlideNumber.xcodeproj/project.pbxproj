@@ -14,6 +14,7 @@
 		92D18E322AF819170062156A /* SlideNumberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D18E312AF819170062156A /* SlideNumberTests.swift */; };
 		92D18E3C2AF819170062156A /* SlideNumberUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D18E3B2AF819170062156A /* SlideNumberUITests.swift */; };
 		92D18E3E2AF819170062156A /* SlideNumberUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D18E3D2AF819170062156A /* SlideNumberUITestsLaunchTests.swift */; };
+		92D18E4B2AF81DD40062156A /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D18E4A2AF81DD40062156A /* GameModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		92D18E372AF819170062156A /* SlideNumberUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlideNumberUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		92D18E3B2AF819170062156A /* SlideNumberUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideNumberUITests.swift; sourceTree = "<group>"; };
 		92D18E3D2AF819170062156A /* SlideNumberUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideNumberUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		92D18E4A2AF81DD40062156A /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				92D18E202AF819160062156A /* SlideNumberApp.swift */,
 				92D18E222AF819160062156A /* ContentView.swift */,
+				92D18E4A2AF81DD40062156A /* GameModel.swift */,
 				92D18E242AF819170062156A /* Assets.xcassets */,
 				92D18E262AF819170062156A /* Preview Content */,
 			);
@@ -259,6 +262,7 @@
 			files = (
 				92D18E232AF819160062156A /* ContentView.swift in Sources */,
 				92D18E212AF819160062156A /* SlideNumberApp.swift in Sources */,
+				92D18E4B2AF81DD40062156A /* GameModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
