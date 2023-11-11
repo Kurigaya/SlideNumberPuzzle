@@ -11,12 +11,9 @@ import CoreGraphics
 
 class GameModel : ObservableObject {
     @Published var gridSize = 4
-//    @Published var numbers = Array(1...15) + [0]
     @Published var hasWon = false
     @Published var moveCount = 0
     @Published private var numbers: [Int]
-    
-//    @Published private var model = initGame()
 //    @Published private var cards = [[1,2,3,4],
 //                                    [5,6,7,8],
 //                                    [9,10,11,12],
