@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		92A3909A2B070EFF00E265BA /* CardCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A390992B070EFF00E265BA /* CardCollection.swift */; };
 		92D18E212AF819160062156A /* SlideNumberApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D18E202AF819160062156A /* SlideNumberApp.swift */; };
 		92D18E232AF819160062156A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D18E222AF819160062156A /* ContentView.swift */; };
 		92D18E252AF819170062156A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92D18E242AF819170062156A /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		92A390992B070EFF00E265BA /* CardCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollection.swift; sourceTree = "<group>"; };
 		92D18E1D2AF819160062156A /* SlideNumber.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlideNumber.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92D18E202AF819160062156A /* SlideNumberApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideNumberApp.swift; sourceTree = "<group>"; };
 		92D18E222AF819160062156A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 			children = (
 				92D18E202AF819160062156A /* SlideNumberApp.swift */,
 				92D18E222AF819160062156A /* ContentView.swift */,
+				92A390992B070EFF00E265BA /* CardCollection.swift */,
 				92D18E4A2AF81DD40062156A /* GameModel.swift */,
 				92D18E242AF819170062156A /* Assets.xcassets */,
 				92D18E262AF819170062156A /* Preview Content */,
@@ -261,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92D18E232AF819160062156A /* ContentView.swift in Sources */,
+				92A3909A2B070EFF00E265BA /* CardCollection.swift in Sources */,
 				92D18E212AF819160062156A /* SlideNumberApp.swift in Sources */,
 				92D18E4B2AF81DD40062156A /* GameModel.swift in Sources */,
 			);

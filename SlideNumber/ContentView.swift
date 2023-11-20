@@ -18,6 +18,7 @@ struct ContentView: View {
                 .bold()
             Spacer()
             cards
+                .animation(.default, value: gameModel.cards)
                 .foregroundColor(.orange)
             Spacer()
             Text(gameModel.hasWon ? "You Won!!!" : "")
@@ -28,7 +29,7 @@ struct ContentView: View {
                 Text("Moves: \(gameModel.moveCount)")
                     .foregroundColor(.blue)
                     .font(.title).bold()
-                Spacer()
+                Spacer(minLength: 5)
                 Button("New Game"){
                     gameModel.newGame()
                 }
@@ -38,7 +39,7 @@ struct ContentView: View {
                 .background(.green)
                 .cornerRadius(12)
             }
-            .padding()
+         
         }
         .padding()
     }
@@ -50,37 +51,35 @@ struct ContentView: View {
     }
     
     func createCards() -> some View{
-        ForEach(0..<16){ index in
-            CardView(number: gameModel.getNumber(num: index))
+        ForEach(gameModel.cards){ card in
+            CardView(card: card)
                 .aspectRatio(1, contentMode: .fit)
                 .onTapGesture {
-                    gameModel.moveNumber(at: index)
+                    gameModel.moveNumber(card)
                 }
-            
         }
     }
 }
 
 struct CardView: View{
-    let number: Int
+    let card: CardCollection<String>.Card
     var body: some View{
         ZStack {
             let base = RoundedRectangle(cornerRadius: 12)
-            if number != 0{
+            if card.content != "0"{
                 Group {
                     base.foregroundColor(.white)
                     base.strokeBorder(lineWidth: 2)
-                    Text("\(number)").font(.largeTitle)
+                    Text(card.content).font(.largeTitle)
                         .bold()
+                }
             }
-        }
-                
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(gameModel: GameModel())
+        ContentView(gameModel : GameModel())
     }
 }

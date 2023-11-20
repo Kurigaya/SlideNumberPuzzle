@@ -6,65 +6,55 @@
 //
 
 import SwiftUI
-import Foundation
-import CoreGraphics
 
 class GameModel : ObservableObject {
-    @Published var gridSize = 4
-    @Published var hasWon = false
-    @Published var moveCount = 0
-    @Published private var numbers: [Int]
-//    @Published private var cards = [[1,2,3,4],
-//                                    [5,6,7,8],
-//                                    [9,10,11,12],
-//                                    [13,14,15,empty]]
-    init(){
-        self.gridSize = 4
-        self.numbers = []
-        initGame()
+    var gridSize = 4
+    var hasWon = false
+    var moveCount = 0
+    static var all_numbers = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15"] + ["0"]
+    var numbers: [String] = []
+    @Published private var model: CardCollection<String> = createModel()
+    var cards: [CardCollection<String>.Card] {return model.cards}
+    
+    static func createModel() -> CardCollection<String>{
+        let numbers = all_numbers.shuffled()
+        var model = CardCollection<String>(numOfCard: 16, contentFactory: {(index) in numbers[index]})
+        model.shuffle()
+        return model
     }
     
-    func initGame(){
-        numbers = Array(1...15) + [0]
-        numbers.shuffle()
-    }
-    
-    func moveNumber(at index: Int) {
-        let row = index / 4
-        let column = index % 4
+    func moveNumber(_ card: CardCollection<String>.Card) {
+        model.swap(card)
+//        index = card.content
+//        if let index = cards.firstIndex(where: { $0.id == card.id }) {
+//            let row = index / 4
+//            let column = index % 4
+//            model.swap(card)
+//            // Check if the selected tile can be moved and swap it with the empty space
+//            if row > 0 && self.numbers[index - 4] == "0" { // Check above
+//                self.numbers.swapAt(index - 4, index)
+//                moveCount += 1
+//            } else if row < 3 && self.numbers[index + 4] == "0" { // Check below
+//                self.numbers.swapAt(index + 4, index)
+//                moveCount += 1
+//            } else if column > 0 && self.numbers[index - 1] == "0" { // Check left
+//                self.numbers.swapAt(index - 1, index)
+//                moveCount += 1
+//            } else if column < 3 && self.numbers[index + 1] == "0" { // Check right
+//                self.numbers.swapAt(index + 1, index)
+//                moveCount += 1
+//            }
+        moveCount += 1
+            checkWin()
         
-        withAnimation(Animation.easeInOut(duration: 0.5)) { // Adjust the duration as needed
-            // Check if the selected tile can be moved and swap it with the empty space
-            if let above = row > 0 ? index - 4 : nil, numbers[above] == 0 {
-                numbers.swapAt(above, index)
-                moveCount += 1
-            } else if let below = row < 3 ? index + 4 : nil, numbers[below] == 0 {
-                numbers.swapAt(below, index)
-                moveCount += 1
-            } else if let left = column > 0 ? index - 1 : nil, numbers[left] == 0 {
-                numbers.swapAt(left, index)
-                moveCount += 1
-            } else if let right = column < 3 ? index + 1 : nil, numbers[right] == 0 {
-                numbers.swapAt(right, index)
-                moveCount += 1
-            }
-        }
     }
-    
-    func getNumber(num: Int) -> Int{
-        return numbers[num]
-    }
-    
-    func getNumbers() -> [Int]{
-        return numbers
-    }
-    
+
     func checkWin(){
-        hasWon = numbers == Array(1...15) + [0]
+        hasWon = self.numbers == ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15"] + ["0"]
     }
     
     func newGame(){
-        initGame()
+        model = GameModel.createModel()
         hasWon = false
         moveCount = 0
     }
