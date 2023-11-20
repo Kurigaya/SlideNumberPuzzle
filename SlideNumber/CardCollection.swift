@@ -10,7 +10,7 @@ import Foundation
 struct CardCollection<CardContent> where CardContent: Equatable {
     var card_conz:CardContent = "0" as! CardContent
     private(set) var cards: [Card]
-    
+    var moveCount = 0
     init(numOfCard: Int, contentFactory: (Int) -> CardContent) {
         cards = []
         for index in 0..<numOfCard{
@@ -24,13 +24,20 @@ struct CardCollection<CardContent> where CardContent: Equatable {
         let column = index % 4
         if row > 0 && cards[index - 4].content == card_conz { // Check above
             cards.swapAt(index - 4, index)
+            moveCount += 1
         } else if row < 3 && cards[index + 4].content == card_conz { // Check below
             cards.swapAt(index + 4, index)
+            moveCount += 1
         } else if column > 0 && cards[index - 1].content == card_conz { // Check left
             cards.swapAt(index - 1, index)
+            moveCount += 1
         } else if column < 3 && cards[index + 1].content == card_conz { // Check right
             cards.swapAt(index + 1, index)
+            moveCount += 1
         }
+    }
+    func getMoveCount() -> Int{
+        return moveCount
     }
     
     func index(of card: Card) -> Int {
